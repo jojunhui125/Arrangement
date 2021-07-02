@@ -1,0 +1,67 @@
+[문제]
+
+4행 2열의 배열을 입력받아 가로평균과 세로평균 그리고 전체평균을 출력하는 프로그램을 작성하라. (소수점 이하는 버림 한다.)
+
+ 
+
+[입력 예]
+
+16 27
+39 100
+19 88
+61 20
+
+ 
+
+[출력 예]
+
+21 69 53 40
+33 58
+46
+
+
+
+#include <stdio.h>
+#define _CRT_SECURE_NO_WARNINGS 
+
+
+int main(void)
+{
+	int arr[4][2];
+	int hor[4] = { 0 };
+	int ver[2] = { 0 };
+	int sum = 0;
+
+
+	for (int i = 0; i < 4; i++)
+	{
+		for (int j = 0; j < 2; j++)
+		{
+			scanf("%d", &arr[i][j]);
+			sum += arr[i][j];
+			hor[i] += arr[i][j];
+			if (j == 0)
+			{
+				ver[j] += arr[i][j];
+			}
+			else
+			{
+				ver[j] += arr[i][j];
+			}
+		}
+	}
+	printf("\n");
+	for (int i = 0; i < 4; i++)
+	{
+		printf("%d ", hor[i]/2);
+	}
+	printf("\n");
+	for (int i = 0; i < 2; i++)
+	{
+		printf("%d ",ver[i]/4);
+	}
+	printf("\n%d\n", sum/8);
+	
+	return 0;
+
+}
